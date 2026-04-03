@@ -3,7 +3,7 @@ import axios from 'axios';
 import './orderdetails.css';
 import Sidebar from '../../sidebar/Sidebar';
 
-const BASE_URL = "https://shopease-g7bc.onrender.com/";
+const BASE_URL = "https://shopease-g7bc.onrender.com";
 
 
 axios.defaults.withCredentials = true;

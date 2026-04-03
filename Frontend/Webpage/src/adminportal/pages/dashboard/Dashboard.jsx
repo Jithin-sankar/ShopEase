@@ -9,7 +9,7 @@ import { FaUsers, FaBox, FaShoppingCart, FaRupeeSign } from "react-icons/fa";
 import "./dashboard.css";
 import Sidebar from '../../sidebar/Sidebar';
 
-const BASE_URL = "https://shopease-g7bc.onrender.com/";
+const BASE_URL = "https://shopease-g7bc.onrender.com";
 
 function Dashboard() {
   const [data, setData] = useState(null);
