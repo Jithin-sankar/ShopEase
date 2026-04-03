@@ -1,8 +1,8 @@
+from django.contrib.auth import authenticate, login, logout  # Add login/logout
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializer import RegisterSerializer
 from .authenticate import COOKIE_SETTINGS, CookieJWTAuthentication
@@ -27,6 +27,9 @@ class LoginView(APIView):
         if not user:
             return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
+      
+        login(request, user) 
+
         refresh = RefreshToken.for_user(user)
         response = Response({"message": "Login successful"}, status=status.HTTP_200_OK)
 
@@ -35,7 +38,6 @@ class LoginView(APIView):
         return response
 
 class UserView(APIView):
-    # This view uses your custom cookie auth
     authentication_classes = [CookieJWTAuthentication]
     permission_classes = [IsAuthenticated]
 
@@ -48,7 +50,6 @@ class UserView(APIView):
             "role": "admin" if user.is_staff else "user"
         })
 
-        # If a new access token was generated during authentication, update the cookie
         if hasattr(request, "_new_access_token"):
             response.set_cookie(
                 key="access", 
@@ -60,6 +61,9 @@ class UserView(APIView):
 
 class LogoutView(APIView):
     def post(self, request):
+        # CRITICAL: Clears the Admin session
+        logout(request) 
+
         response = Response({"message": "Logged out successfully"}, status=status.HTTP_200_OK)
         response.delete_cookie("access", **COOKIE_SETTINGS)
         response.delete_cookie("refresh", **COOKIE_SETTINGS)

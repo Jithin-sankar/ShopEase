@@ -9,18 +9,22 @@ function ProtectedRoute({ children }) {
   useEffect(() => {
     const checkUser = async () => {
       try {
+        // FIX: Added the full API path /api/auth/user/
         const res = await axios.get(
-          "https://shopease-g7bc.onrender.com",
+          "https://shopease-g7bc.onrender.com/api/auth/user/", 
           { withCredentials: true }
         );
 
-        const user = res.data.user || res.data;
-
-        if (user?.role === "admin") {
+        
+        if (res.data?.role === "admin") {
           setIsAdmin(true);
+        } else {
+          console.warn("User is authenticated but not an admin.");
+          setIsAdmin(false);
         }
       } catch (error) {
-        console.error("Auth check failed");
+        console.error("Auth check failed:", error.response?.status || error.message);
+        setIsAdmin(false);
       } finally {
         setLoading(false);
       }
@@ -29,16 +33,14 @@ function ProtectedRoute({ children }) {
     checkUser();
   }, []);
 
-  
   if (loading) {
-    return <h2>Checking authentication...</h2>;
+    return <h2 style={{ textAlign: "center", marginTop: "50px" }}>Checking authentication...</h2>;
   }
 
-  
   if (!isAdmin) {
-    return <Navigate to="/Login" replace />;
+    
+    return <Navigate to="/login" replace />;
   }
-
 
   return children;
 }
