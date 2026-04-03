@@ -4,7 +4,7 @@ import axios from 'axios';
 import Nav from '../Nav/Nav';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "./cart.css";
+import "./Cart.css";
 import { CartContext } from '../context/Cartcontext';
 
 function Cart() {
