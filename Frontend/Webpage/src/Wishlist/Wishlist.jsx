@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './wishlist.css';
+import './Wishlist.css';
 import Nav from '../Nav/Nav';
 import { toast, ToastContainer } from 'react-toastify';
 import { CartContext } from '../context/Cartcontext';
