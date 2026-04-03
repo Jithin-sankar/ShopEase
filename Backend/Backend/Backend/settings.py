@@ -53,8 +53,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.security.SecurityMiddleware',  
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,10 +84,13 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "https://shop-ease-xi-eight.vercel.app",
     "http://127.0.0.1:5173",   
+    "http://localhost:5173",  # <--- Add this line
 ]
+
 CSRF_TRUSTED_ORIGINS = [
     "https://shop-ease-xi-eight.vercel.app",
     "http://127.0.0.1:5173",  
+    "http://localhost:5173",  # <--- Add this line
 ]
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
