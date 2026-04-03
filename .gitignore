@@ -4,14 +4,16 @@
 # Python
 __pycache__/
 .pyc
-
-# Env files
+.pyo
+.pyd
 .env
-node_modules/
-Frontend/node_modules/
-
 venv/
-Backend/venv/
+env/
+.sqlite3
 
+# Node / React
+node_modules/
+build/
+dist/
 
 
