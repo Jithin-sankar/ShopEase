@@ -32,20 +32,27 @@ function Nav() {
     fetchUser();
   }, []);
 
-  const logout = async () => {
+ const logout = async () => {
     try {
       await axios.post(
         "https://shopease-g7bc.onrender.com/api/auth/logout/",
         {},
         { withCredentials: true }
       );
+      
+      // Clear local state
       setUser(null);
-      navigate("/");
+      
+      // Force a full refresh to clear any cached auth data in the browser
+      window.location.href = "/"; 
+      
     } catch (err) {
-      console.log(err);
+      console.error("Logout failed", err);
+      // Fallback: clear local state anyway
+      setUser(null);
+      window.location.href = "/login";
     }
   };
-
   const login = () => {
     navigate("/login");
   };
