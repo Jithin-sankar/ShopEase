@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
-import './products.css';
+import './Products.css';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import { toast, ToastContainer } from 'react-toastify';
