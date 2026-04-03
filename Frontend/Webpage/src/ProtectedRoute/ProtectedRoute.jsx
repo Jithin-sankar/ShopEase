@@ -10,7 +10,7 @@ function ProtectedRoute({ children }) {
     const checkUser = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/auth/user/",
+          "https://shopease-g7bc.onrender.com",
           { withCredentials: true }
         );
 
