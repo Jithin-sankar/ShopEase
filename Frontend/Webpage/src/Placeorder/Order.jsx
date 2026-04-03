@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import axios from 'axios';
-import './order.css';
+import './Order.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CartContext } from '../context/Cartcontext';
