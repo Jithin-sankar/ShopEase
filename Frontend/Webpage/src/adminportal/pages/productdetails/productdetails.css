@@ -5,10 +5,9 @@
   background-color: #1a1c1e; /* Matches Sidebar/Gap color */
 }
 
-/* 🔥 MAIN CONTENT WRAPPER (The Floating Container) */
 .forprducte {
   flex: 1;
-  margin-left: 260px; /* Sidebar width (240px) + Gap (20px) */
+  margin-left: 260px; 
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 20px;
