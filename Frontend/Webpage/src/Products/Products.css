@@ -1,0 +1,113 @@
+.products-container {
+  text-align: center;
+  padding: 20px;
+}
+
+
+.brand-filter {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.brand-btn {
+  border: none;
+  outline: none;
+  background-color: #e0f7fa;
+  color: #0a6fa3;
+  border-radius: 10px;
+  width: 70px;
+  height: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.brand-btn:hover {
+  background-color: #0dcaf0;
+  color: white;
+  transform: scale(1.05);
+}
+
+.brand-btn.active {
+  background-color: #0dcaf0;
+  color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔹 Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* 🔹 Card */
+.product-card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  height: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 🔹 Image */
+.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* 🔥 Wishlist (TOP RIGHT like Flipkart/Amazon) */
+.wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+}
+
+.wishlist-btn:hover {
+  transform: scale(1.2);
+}
+
+/* 🔹 Actions (Bottom Area) */
+.actions {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 🛒 Cart Button */
+.add-cart-btn {
+  padding: 6px 12px;
+  background-color: #0dcaf0;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-cart-btn:hover {
+  background-color: #0bb3d4;
+}

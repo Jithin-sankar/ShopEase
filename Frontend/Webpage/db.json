@@ -1,0 +1,780 @@
+{
+  "users": [
+    {
+      "id": "7727",
+      "username": "jithin",
+      "email": "jithinsankar2005@gmail.com",
+      "password": "12345",
+      "role": "admin"
+    },
+    {
+      "id": "859e",
+      "username": "arsha ",
+      "email": "arsha@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "f509",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "806d",
+      "username": "ansil",
+      "email": "ansil@gamil.com",
+      "password": "1234",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "45a0",
+      "username": "naveen",
+      "email": "naveen@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "8b64",
+      "username": "naheel",
+      "email": "naheel@gmail.com",
+      "password": "password",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "productName": "Samsung Galaxy S25 Ultra 5G",
+      "brand": "Samsung",
+      "specs": {
+        "RAM": "16GB",
+        "Storage": "512GB",
+        "Battery": "6000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Top-tier flagship phone with Snapdragon 8 Gen 3 chip, 200MP camera, and S Pen support.",
+      "price": 123499,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335628/Id-1_l1f2ar.webp",
+      "id": "f4e7",
+      "quantity": 6,
+      "product_name": "Samsung Galaxy S25 Ultra 5G"
+    },
+    {
+      "productName": "OnePlus 12R 5G",
+      "brand": "OnePlus",
+      "specs": {
+        "RAM": "12GB",
+        "Storage": "512GB",
+        "Battery": "6000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Premium device with smooth performance, AMOLED display, and fast charging.",
+      "price": 45999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335629/id-2_esfpbk.png",
+      "id": "4e88"
+    },
+    {
+      "productName": "Google Pixel 8",
+      "brand": "Pixel",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Clean Android experience, AI camera processing, and Tensor G3 chip.",
+      "price": 75999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335629/id-3_w7vsit.jpg",
+      "id": "c50d"
+    },
+    {
+      "productName": "Xiaomi 14 Pro",
+      "brand": "Xiaomi",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "3500mAh",
+        "Camera": "48MP"
+      },
+      "description": "High-end phone with Leica cameras, bright AMOLED display, and Snapdragon 8 Gen 3.",
+      "price": 64999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335630/id-4_naswrl.avif",
+      "id": "bb51"
+    },
+    {
+      "productName": "iQOO 12 5G",
+      "brand": "IQOO",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Gaming beast with Snapdragon 8 Gen 3 and 120W fast charging.",
+      "price": 52999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335636/id-5_rptryj.jpg",
+      "id": "32be"
+    },
+    {
+      "productName": "Nothing Phone 2",
+      "brand": "Nothing",
+      "specs": {
+        "RAM": "12GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Unique transparent design with Glyph interface and smooth Android performance.",
+      "price": 37999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335631/id-6_h8uncq.webp",
+      "id": "26b4"
+    },
+    {
+      "productName": "Samsung Galaxy A35 5G",
+      "brand": "Samsung",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Reliable 5G midrange phone with AMOLED display and IP67 rating.",
+      "price": 18772,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335630/id-7_xxoroj.png",
+      "id": "2a97"
+    },
+    {
+      "productName": "OnePlus Nord CE 3 Lite",
+      "brand": "OnePlus",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Well-balanced smartphone with large display and 108MP camera.",
+      "price": 19999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335631/id-8_x3noqi.jpg",
+      "id": "9a46"
+    },
+    {
+      "productName": "Oppo Reno 11 5G",
+      "brand": "Oppo",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Elegant phone with portrait photography features and AMOLED screen.",
+      "price": 28999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335631/id-9_xlieht.webp",
+      "id": "91f1"
+    },
+    {
+      "productName": "Vivo V30 Pro",
+      "brand": "Vivo",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "512GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Stylish midrange with curved AMOLED and great camera performance.",
+      "price": 34999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335632/id-10_rfdyjl.png",
+      "id": "4029"
+    },
+    {
+      "productName": "Poco F6 5G",
+      "brand": "Poco",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Affordable performance phone with Snapdragon 8s Gen 3 chip.",
+      "price": 29999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335632/id-11_n7tnuf.webp",
+      "id": "7eac"
+    },
+    {
+      "productName": "Realme 12 Pro+ 5G",
+      "brand": "Realme",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "6000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Premium-looking phone with periscope camera and strong battery life.",
+      "price": 25999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335633/id-12_yk2t0l.jpg",
+      "id": "03b4"
+    },
+    {
+      "productName": "Redmi Note 13 Pro 5G",
+      "brand": "Redmi",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5100mAh",
+        "Camera": "48MP"
+      },
+      "description": "Reliable 5G device with smooth display and large 5100mAh battery.",
+      "price": 23999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335633/id-13_f4hzwu.jpg",
+      "id": "1f2b"
+    },
+    {
+      "productName": "Infinix GT 20 Pro",
+      "brand": "Infinix",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Budget gaming phone with MediaTek Dimensity 8200 Ultimate chip.",
+      "price": 24999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335633/id-14_f0pgkq.png",
+      "id": "0256"
+    },
+    {
+      "productName": "Tecno Camon 30 5G",
+      "brand": "Tecno",
+      "specs": {
+        "RAM": "6GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Affordable 5G device with 50MP Sony sensor and strong design.",
+      "price": 15999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335633/id-15_vojxhf.jpg",
+      "id": "03af"
+    },
+    {
+      "productName": "Moto G73 5G",
+      "brand": "Moto",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Clean Android experience with strong 5000mAh battery.",
+      "price": 16999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335634/id-16_i5c3cw.jpg",
+      "id": "e621"
+    },
+    {
+      "productName": "Samsung Galaxy M15 5G",
+      "brand": "Samsung",
+      "specs": {
+        "RAM": "4GB",
+        "Storage": "256GB",
+        "Battery": "6000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Sturdy 5G phone with AMOLED display and 6000mAh battery.",
+      "price": 13499,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335634/id-17_yfwdzu.avif",
+      "id": "c234"
+    },
+    {
+      "productName": "Lava Agni 2 5G",
+      "brand": "Lava",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Indian-made 5G phone with curved AMOLED and 66W fast charging.",
+      "price": 19999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335635/id-18_kxbrvm.jpg",
+      "id": "ee43"
+    },
+    {
+      "productName": "iQOO Z9 5G",
+      "brand": "IQOO",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Gaming-focused midrange with Dimensity 7200 chip and AMOLED screen.",
+      "price": 18999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335634/id-19_q8neoq.jpg",
+      "id": "5451"
+    },
+    {
+      "productName": "Realme Narzo 70 Pro 5G",
+      "brand": "Realme",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Reliable 5G performance and strong camera setup for daily users.",
+      "price": 18999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335629/id-20_eglodk.jpg",
+      "id": "6d8e"
+    },
+    {
+      "productName": "Infinix Note 40 Pro 5G",
+      "brand": "Infinix",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "40MP"
+      },
+      "description": "Feature-rich phone with wireless charging and AMOLED display.",
+      "price": 17999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335629/id-21_tlz0wd.jpg",
+      "id": "8423"
+    },
+    {
+      "productName": "Samsung Galaxy F15 5G",
+      "brand": "Samsung",
+      "specs": {
+        "RAM": "6GB",
+        "Storage": "128GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Value 5G smartphone with long battery life and bright display.",
+      "price": 12999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335629/id-22_pfwttp.avif",
+      "id": "02d6"
+    },
+    {
+      "productName": "Redmi 13C 5G",
+      "brand": "Redmi",
+      "specs": {
+        "RAM": "6GB",
+        "Storage": "128GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Entry-level 5G phone with MediaTek Dimensity 6100+ chipset.",
+      "price": 11999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335630/id-23_oyzarq.webp",
+      "id": "7aca"
+    },
+    {
+      "productName": "Realme C67 5G",
+      "brand": "Realme",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Affordable 5G with large 6.7-inch display and 120Hz refresh rate.",
+      "price": 13999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335630/id-24_fqhm8i.jpg",
+      "id": "1f76"
+    },
+    {
+      "productName": "Lava Blaze Curve 5G",
+      "brand": "Lava",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "64MP"
+      },
+      "description": "Curved display design, 64MP camera, and solid performance.",
+      "price": 17999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335631/id-25_pxdtcs.jpg",
+      "id": "061e"
+    },
+    {
+      "productName": "Poco X6 Pro 5G",
+      "brand": "Poco",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "High performance phone with MediaTek Dimensity 8300 Ultra chip.",
+      "price": 26999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335631/id-26_bvlovx.jpg",
+      "id": "4bf8"
+    },
+    {
+      "productName": "Vivo Y200e 5G",
+      "brand": "Vivo",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Lightweight 5G phone with AMOLED screen and stylish finish.",
+      "price": 19999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335632/id-27_y5z8fe.png",
+      "id": "5dd7"
+    },
+    {
+      "productName": "Oppo F25 Pro 5G",
+      "brand": "Oppo",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "5000mAh",
+        "Camera": "50MP"
+      },
+      "description": "Sleek design, 120Hz AMOLED display, and strong camera setup.",
+      "price": 23999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335633/id-28_qogjzi.jpg",
+      "id": "27ba"
+    },
+    {
+      "productName": "Realme GT Neo 5 SE",
+      "brand": "Realme",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "6000mAh",
+        "Camera": "50MP"
+      },
+      "description": "High-speed phone with Snapdragon 7+ Gen 2 and 5500mAh battery.",
+      "price": 31999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335632/id-29_a9na5e.jpg",
+      "id": "92ea"
+    },
+    {
+      "productName": "iQOO Neo 9 Pro",
+      "brand": "IQOO",
+      "specs": {
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "Battery": "7000mAh",
+        "Camera": "48MP"
+      },
+      "description": "Top-end performance at a lower price with Snapdragon 8 Gen 2.",
+      "price": 37999,
+      "currency": "₹",
+      "image": "https://res.cloudinary.com/dyacx2dos/image/upload/v1774335633/id-30_ol7ixa.jpg",
+      "id": "b15f"
+    }
+  ],
+  "cart": [],
+  "orders": [
+    {
+      "id": "fc88",
+      "customerName": "arsha",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "productName": "Samsung Galaxy S25 Ultra 5G",
+          "brand": "Samsung",
+          "specs": {
+            "RAM": "16GB",
+            "Storage": "512GB",
+            "Battery": "6000mAh",
+            "Camera": "50MP"
+          },
+          "description": "Top-tier flagship phone with Snapdragon 8 Gen 3 chip, 200MP camera, and S Pen support.",
+          "price": 123499,
+          "currency": "₹",
+          "image": "Id-1.webp",
+          "id": "f4e7",
+          "quantity": 1
+        }
+      ],
+      "total": 123499,
+      "orderTime": "10/17/2025, 11:29:48 AM",
+      "status": "Placed",
+      "Delivery_Status": "Order Canceled"
+    },
+    {
+      "id": "14f7",
+      "customerName": "arsha",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "id": "4e88",
+          "productName": "OnePlus 12R 5G",
+          "brand": "OnePlus",
+          "specs": {
+            "RAM": "12GB",
+            "Storage": "512GB",
+            "Battery": "6000mAh",
+            "Camera": "50MP"
+          },
+          "description": "Premium device with smooth performance, AMOLED display, and fast charging.",
+          "price": 45999,
+          "currency": "₹",
+          "image": "id-2.png",
+          "quantity": 1,
+          "productId": "4e88"
+        }
+      ],
+      "total": 45999,
+      "orderTime": "2025-10-20T05:11:38.185Z",
+      "status": "Placed",
+      "Delivery_Status": "Order Canceled"
+    },
+    {
+      "id": "746a",
+      "customerName": "arsha",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "id": "32be",
+          "productName": "iQOO 12 5G",
+          "brand": "IQOO",
+          "specs": {
+            "RAM": "8GB",
+            "Storage": "256GB",
+            "Battery": "5000mAh",
+            "Camera": "48MP"
+          },
+          "description": "Gaming beast with Snapdragon 8 Gen 3 and 120W fast charging.",
+          "price": 52999,
+          "currency": "₹",
+          "image": "id-5.jpg",
+          "quantity": 1,
+          "productId": "32be"
+        }
+      ],
+      "total": 52999,
+      "orderTime": "2025-10-20T05:16:37.876Z",
+      "status": "Placed",
+      "Delivery_Status": "Order Canceled"
+    },
+    {
+      "id": "a0db",
+      "customerName": "arsha",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "id": "32be",
+          "productName": "iQOO 12 5G",
+          "brand": "IQOO",
+          "specs": {
+            "RAM": "8GB",
+            "Storage": "256GB",
+            "Battery": "5000mAh",
+            "Camera": "48MP"
+          },
+          "description": "Gaming beast with Snapdragon 8 Gen 3 and 120W fast charging.",
+          "price": 52999,
+          "currency": "₹",
+          "image": "id-5.jpg",
+          "quantity": 1,
+          "productId": "32be"
+        }
+      ],
+      "total": 52999,
+      "orderTime": "2025-10-20T05:18:52.041Z",
+      "status": "Placed",
+      "Delivery_Status": "Order Canceled"
+    },
+    {
+      "id": "f8fd",
+      "customerName": "naveen",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "id": "5dd7",
+          "productName": "Vivo Y200e 5G",
+          "brand": "Vivo",
+          "specs": {
+            "RAM": "8GB",
+            "Storage": "256GB",
+            "Battery": "5000mAh",
+            "Camera": "50MP"
+          },
+          "description": "Lightweight 5G phone with AMOLED screen and stylish finish.",
+          "price": 19999,
+          "currency": "₹",
+          "image": "id-27.png",
+          "quantity": 1,
+          "productId": "5dd7"
+        }
+      ],
+      "total": 19999,
+      "orderTime": "2025-10-20T05:25:09.411Z",
+      "status": "Placed"
+    },
+    {
+      "id": "90f2",
+      "customerName": "aswin",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "id": "c50d",
+          "productName": "Google Pixel 8",
+          "brand": "Pixel",
+          "specs": {
+            "RAM": "8GB",
+            "Storage": "256GB",
+            "Battery": "5000mAh",
+            "Camera": "50MP"
+          },
+          "description": "Clean Android experience, AI camera processing, and Tensor G3 chip.",
+          "price": 75999,
+          "currency": "₹",
+          "image": "id-3.jpg",
+          "quantity": 1,
+          "productId": "c50d"
+        }
+      ],
+      "total": 75999,
+      "orderTime": "2025-10-20T05:32:29.397Z",
+      "status": "Placed"
+    },
+    {
+      "id": "50a7",
+      "customerName": "arsha",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "id": "4e88",
+          "productName": "OnePlus 12R 5G",
+          "brand": "OnePlus",
+          "specs": {
+            "RAM": "12GB",
+            "Storage": "512GB",
+            "Battery": "6000mAh",
+            "Camera": "50MP"
+          },
+          "description": "Premium device with smooth performance, AMOLED display, and fast charging.",
+          "price": 45999,
+          "currency": "₹",
+          "image": "id-2.png",
+          "quantity": 3,
+          "productId": "4e88"
+        }
+      ],
+      "total": 137997,
+      "orderTime": "2025-10-21T06:14:29.160Z",
+      "status": "Placed"
+    },
+    {
+      "id": "8945",
+      "customerName": "arsha",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "id": "f4e7",
+          "productName": "Samsung Galaxy S25 Ultra 5G",
+          "brand": "Samsung",
+          "specs": {
+            "RAM": "16GB",
+            "Storage": "512GB",
+            "Battery": "6000mAh",
+            "Camera": "50MP"
+          },
+          "description": "Top-tier flagship phone with Snapdragon 8 Gen 3 chip, 200MP camera, and S Pen support.",
+          "price": 123499,
+          "currency": "₹",
+          "image": "Id-1.webp",
+          "quantity": 1,
+          "product_name": "Samsung Galaxy S25 Ultra 5G",
+          "productId": "f4e7"
+        }
+      ],
+      "total": 123499,
+      "orderTime": "2026-03-10T04:41:15.315Z",
+      "status": "Placed"
+    },
+    {
+      "id": "7b28",
+      "customerName": "arsha",
+      "phone": "0000000",
+      "email": "adarsh22@gmail.com",
+      "address": "kollam",
+      "location": "manjeri",
+      "items": [
+        {
+          "id": "f4e7",
+          "productName": "Samsung Galaxy S25 Ultra 5G",
+          "brand": "Samsung",
+          "specs": {
+            "RAM": "16GB",
+            "Storage": "512GB",
+            "Battery": "6000mAh",
+            "Camera": "50MP"
+          },
+          "description": "Top-tier flagship phone with Snapdragon 8 Gen 3 chip, 200MP camera, and S Pen support.",
+          "price": 123499,
+          "currency": "₹",
+          "image": "Id-1.webp",
+          "quantity": 1,
+          "product_name": "Samsung Galaxy S25 Ultra 5G"
+        }
+      ],
+      "total": 123499,
+      "orderTime": "2026-03-18T06:59:08.819Z",
+      "status": "Placed"
+    }
+  ]
+}

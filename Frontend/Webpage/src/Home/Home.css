@@ -1,0 +1,97 @@
+body{
+  margin: 0;
+}
+.home {
+  position: relative;
+  text-align: center;
+  background-color: #151b29;
+  color: #fff;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.homeimage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.shop-button {
+  position: absolute;
+  bottom: 31%;
+  left: 25%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-button:hover {
+  background: #0078ff;
+}
+
+.categories {
+  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  background-color: #151b29;
+}
+
+.category-card {
+  background: #565f74;
+  border-radius: 15px;
+  padding: 20px;
+  width: 240px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.category-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.category-card h3 {
+  margin-top: 15px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.category-card:hover {
+  background: #414b56;
+  transform: translateY(-5px);
+}
+.footer {
+  background-color: #111827;
+  color: #cbd5e1;           
+  padding: 40px 20px 20px;  
+  text-align: center;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+}
+
+.footer-section h4 {
+  color: #0ea5e9;           
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #94a3b8;            
+}
+
+

@@ -1,0 +1,81 @@
+
+.order-success-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6; 
+  padding: 20px;
+}
+
+
+.order-success-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  padding: 40px 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+.order-success-card h2 {
+  font-size: 2rem;
+  color: #16a34a; 
+  margin: 0;
+}
+
+
+.order-success-card p {
+  font-size: 1rem;
+  color: #374151;
+  margin: 0;
+}
+
+
+.order-success-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  display: block;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  transition: background 0.3s;
+  text-align: center;
+}
+
+.btn-products {
+  background-color: #3b82f6; 
+
+.btn-products:hover {
+  background-color: #2563eb;
+}
+
+.btn-orders {
+  background-color: #14b8a6; 
+}
+
+.btn-orders:hover {
+  background-color: #0d9488;
+}
+
+@media (min-width: 500px) {
+  .order-success-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .btn {
+    flex: 1;
+  }
+}
+}
