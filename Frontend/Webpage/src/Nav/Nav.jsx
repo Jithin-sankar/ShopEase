@@ -1,5 +1,5 @@
 import "./nav.css";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { FaShoppingCart, FaHeart } from "react-icons/fa"; 
 import axios from "axios";
@@ -13,7 +13,6 @@ function Nav() {
   const { cartCount } = useContext(CartContext);
 
   const wishlistCount = wishlistItems.length; 
-
   const [user, setUser] = useState(null);
 
   const fetchUser = async () => {
@@ -32,72 +31,67 @@ function Nav() {
     fetchUser();
   }, []);
 
- const logout = async () => {
+  const logout = async () => {
     try {
       await axios.post(
         "https://shopease-g7bc.onrender.com/api/auth/logout/",
         {},
         { withCredentials: true }
       );
-      
-      // Clear local state
       setUser(null);
-      
-      // Force a full refresh to clear any cached auth data in the browser
-      window.location.href = "/"; 
-      
+      navigate("/");   // ✅ client-side navigation
     } catch (err) {
       console.error("Logout failed", err);
-      // Fallback: clear local state anyway
       setUser(null);
-      window.location.href = "/login";
+      navigate("/login"); // ✅ no full reload
     }
   };
+
   const login = () => {
     navigate("/login");
   };
 
   return (
     <div className="navbar">
-
-      {/* LEFT */}
       <div className="navR">
         <h1 className="title" onClick={() => navigate("/")}>
           ShopEase
         </h1>
       </div>
 
-      {/* CENTER (important for layout balance) */}
       <div className="nav-center"></div>
 
-      {/* RIGHT */}
       <div className="navL">
         <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/Products">Products</Link></li>
+          <li>
+            <NavLink to="/" end activeClassName="active">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/products" activeClassName="active">Products</NavLink>
+          </li>
 
           {user && (
             <li>
-              <Link to="/orderhistory">Orders</Link>
+              <NavLink to="/orderhistory" activeClassName="active">Orders</NavLink>
             </li>
           )}
 
           <li className="wishlist-icon">
-            <Link to="/wishlist">
+            <NavLink to="/wishlist" activeClassName="active">
               <FaHeart size={20} />
               {wishlistCount > 0 && (
                 <span className="wishlist-count">{wishlistCount}</span>
               )}
-            </Link>
+            </NavLink>
           </li>
 
           <li className="cart-icon">
-            <Link to="/Cart">
+            <NavLink to="/cart" activeClassName="active">
               <FaShoppingCart size={22} />
               {cartCount > 0 && (
                 <span className="cart-count">{cartCount}</span>
               )}
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
