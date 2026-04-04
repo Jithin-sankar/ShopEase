@@ -8,12 +8,16 @@ from .models import Order, OrderItem
 from .serializers import OrderSerializer
 from accounts.views import CookieJWTAuthentication
 from cart.models import Cart
+from drf_yasg.utils import swagger_auto_schema
 
 
 class OrderView(APIView):
     authentication_classes = [CookieJWTAuthentication]
     permission_classes = [IsAuthenticated]
-
+    @swagger_auto_schema(
+        request_body=OrderSerializer,
+        responses={201: "Order created successfully", 400: "Validation failed"}
+    )
     def post(self, request):
         try:
             serializer = OrderSerializer(
@@ -83,7 +87,9 @@ class OrderView(APIView):
                 {"error": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
-
+    @swagger_auto_schema(
+        responses={200: OrderSerializer(many=True)}
+    )
     def get(self, request):
         try:
             orders = Order.objects.filter(user=request.user).order_by('-created_at')

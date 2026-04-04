@@ -6,18 +6,30 @@ from accounts.views import CookieJWTAuthentication
 from .models import Wishlist
 from .serializers import WishlistSerializer
 from products.models import Product
-
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 class WishlistView(APIView):
     authentication_classes = [CookieJWTAuthentication]
     permission_classes = [IsAuthenticated]
-
+    @swagger_auto_schema(
+        responses={200: WishlistSerializer(many=True)}
+    )
     def get(self, request):
         wishlist = Wishlist.objects.filter(user=request.user)
         serializer = WishlistSerializer(wishlist, many=True)
         return Response(serializer.data)
 
-    
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=['product_id'],
+            properties={
+                'product_id': openapi.Schema(type=openapi.TYPE_STRING, description="ID of the product to add to wishlist"),
+            },
+        ),
+        responses={201: "Added to wishlist", 200: "Already in wishlist"}
+    )
     def post(self, request):
         product_id = request.data.get("product_id")
 

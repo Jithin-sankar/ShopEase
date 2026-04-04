@@ -183,13 +183,11 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 SWAGGER_SETTINGS = {
-    'USE_SESSION_AUTH': False,
     'SECURITY_DEFINITIONS': {
         'Bearer': {
             'type': 'apiKey',
             'name': 'Authorization',
-            'in': 'header',
-            'description': 'Enter: Bearer <your_token>',
+            'in': 'header'
         }
     }
 }

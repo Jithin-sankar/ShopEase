@@ -5,7 +5,8 @@ from .models import Cart
 from .serializers import CartSerializer
 from products.models import Product
 from accounts.views import CookieJWTAuthentication
-
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 class CartView(APIView):
     authentication_classes = [CookieJWTAuthentication]
@@ -16,6 +17,17 @@ class CartView(APIView):
         serializer = CartSerializer(cart_items, many=True)
         return Response(serializer.data)
 
+
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=['product_id'],
+            properties={
+                'product_id': openapi.Schema(type=openapi.TYPE_STRING, description="The ID of the product to add"),
+            },
+        ),
+        responses={200: CartSerializer(many=True)}
+    )
     def post(self, request):
         user = request.user
         product_id = request.data.get('product_id')
@@ -62,6 +74,20 @@ class CartUpdateView(APIView):
     authentication_classes = [CookieJWTAuthentication]
     permission_classes = [IsAuthenticated]
 
+
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'action': openapi.Schema(
+                    type=openapi.TYPE_STRING, 
+                    description="Action to perform: 'decrease'",
+                    enum=['decrease']
+                ),
+            },
+        ),
+        responses={200: CartSerializer(many=True)}
+    )
     def patch(self, request, id):
         try:
             item = Cart.objects.get(id=id, user=request.user)

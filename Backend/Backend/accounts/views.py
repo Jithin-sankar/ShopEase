@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login, logout  # Add login/logout
+from django.contrib.auth import authenticate, login, logout  
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,9 +6,12 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializer import RegisterSerializer
 from .authenticate import COOKIE_SETTINGS, CookieJWTAuthentication
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 class RegisterView(APIView):
     permission_classes = [AllowAny]
+    @swagger_auto_schema(request_body=RegisterSerializer)
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
@@ -18,6 +21,16 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=['username', 'password'],
+            properties={
+                'username': openapi.Schema(type=openapi.TYPE_STRING),
+                'password': openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        )
+    )
     def post(self, request):
         user = authenticate(
             username=request.data.get("username"),
@@ -61,7 +74,7 @@ class UserView(APIView):
 
 class LogoutView(APIView):
     def post(self, request):
-        # CRITICAL: Clears the Admin session
+        
         logout(request) 
 
         response = Response({"message": "Logged out successfully"}, status=status.HTTP_200_OK)

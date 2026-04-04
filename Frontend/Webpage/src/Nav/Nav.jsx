@@ -48,7 +48,7 @@ function Nav() {
       
     } catch (err) {
       console.error("Logout failed", err);
-      // Fallback: clear local state anyway
+     
       setUser(null);
       window.location.href = "/login";
     }

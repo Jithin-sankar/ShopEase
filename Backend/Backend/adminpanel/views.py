@@ -8,7 +8,8 @@ from django.utils.timezone import now
 from datetime import timedelta
 import uuid
 import json
-
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from accounts.views import CookieJWTAuthentication
 from accounts.models import User
 from orders.models import Order
@@ -23,7 +24,7 @@ def is_admin(user):
     )
 
 
-# ------------------- Admin Dashboard -------------------
+
 class AdminDashboard(APIView):
     authentication_classes = [CookieJWTAuthentication]
     permission_classes = [IsAuthenticated]
@@ -78,11 +79,17 @@ class AdminDashboard(APIView):
             return Response({"error": str(e)}, status=500)
 
 
-# ------------------- Admin Orders -------------------
 class AdminOrders(APIView):
     authentication_classes = [CookieJWTAuthentication]
     permission_classes = [IsAuthenticated]
-
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'status': openapi.Schema(type=openapi.TYPE_STRING, description="Order status (e.g., Shipped, Delivered)"),
+            },
+        )
+    )
     def get(self, request):
         try:
             if not is_admin(request.user):
@@ -133,11 +140,11 @@ class AdminOrders(APIView):
             return Response({"error": str(e)}, status=500)
 
 
-# ------------------- Admin Products -------------------
+
 class AdminProducts(APIView):
     authentication_classes = [CookieJWTAuthentication]
     permission_classes = [IsAuthenticated]
-
+    @swagger_auto_schema(responses={200: ProductSerializer(many=True)})
     def get(self, request):
         try:
             if not is_admin(request.user):
@@ -149,7 +156,7 @@ class AdminProducts(APIView):
 
         except Exception as e:
             return Response({"error": str(e)}, status=500)
-
+    @swagger_auto_schema(request_body=ProductSerializer)
     def post(self, request):
         try:
             if not is_admin(request.user):
@@ -221,7 +228,7 @@ class AdminProducts(APIView):
             return Response({"error": str(e)}, status=500)
 
 
-# ------------------- Admin Users -------------------
+
 class AdminUsersView(APIView):
     authentication_classes = [CookieJWTAuthentication]
     permission_classes = [IsAuthenticated]

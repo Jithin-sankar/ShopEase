@@ -4,19 +4,18 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import DatabaseError
-
+from drf_yasg.utils import swagger_auto_schema
 from .models import Product
 from .serializers import ProductSerializer
 from accounts.views import CookieJWTAuthentication
 
 class ProductList(APIView):
     authentication_classes = [CookieJWTAuthentication]
-
     def get_permissions(self):
         if self.request.method == "GET":
             return []  # Public access
         return [IsAuthenticated(), IsAdminUser()]
-
+    @swagger_auto_schema(responses={200: ProductSerializer(many=True)})
     def get(self, request):
         try:
             products = Product.objects.all()
@@ -41,7 +40,10 @@ class ProductList(APIView):
                 {"error": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
-
+    @swagger_auto_schema(
+        request_body=ProductSerializer,
+        responses={201: "Product created successfully", 400: "Validation failed"}
+    )
     def post(self, request):
         try:
             serializer = ProductSerializer(data=request.data)
@@ -80,7 +82,7 @@ class ProductList(APIView):
 
 class ProductDetail(APIView):
     authentication_classes = [CookieJWTAuthentication]
-
+    
     def get_permissions(self):
         if self.request.method == "GET":
             return []
@@ -91,7 +93,7 @@ class ProductDetail(APIView):
             return Product.objects.get(pk=pk)
         except ObjectDoesNotExist:
             return None
-
+    @swagger_auto_schema(responses={200: ProductSerializer()})
     def get(self, request, pk):
         try:
             product = self.get_object(pk)
@@ -110,7 +112,10 @@ class ProductDetail(APIView):
                 {"error": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
-
+    @swagger_auto_schema(
+        request_body=ProductSerializer,
+        responses={200: "Product updated successfully"}
+    )
     def put(self, request, pk):
         try:
             product = self.get_object(pk)
