@@ -1,73 +1,108 @@
 import "./nav.css";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import { FaShoppingCart, FaHeart } from "react-icons/fa"; 
 import axios from "axios";
 import { CartContext } from "../context/Cartcontext";
 import { WishlistContext } from "../context/WishlistContext";
-import { AuthContext } from "../context/AuthContext";
 
 function Nav() {
   const navigate = useNavigate();
+
   const { wishlistItems } = useContext(WishlistContext);
   const { cartCount } = useContext(CartContext);
-  const { user, setUser, loading } = useContext(AuthContext);
 
-  const wishlistCount = wishlistItems.length;
+  const wishlistCount = wishlistItems.length; 
 
-  const logout = async () => {
+  const [user, setUser] = useState(null);
+
+  const fetchUser = async () => {
+    try {
+      const res = await axios.get(
+        "https://shopease-g7bc.onrender.com/api/auth/user/",
+        { withCredentials: true }
+      );
+      setUser(res.data);
+    } catch {
+      setUser(null);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+ const logout = async () => {
     try {
       await axios.post(
         "https://shopease-g7bc.onrender.com/api/auth/logout/",
         {},
         { withCredentials: true }
       );
+      
+     
       setUser(null);
-      navigate("/");
+      
+      
+      window.location.href = "/"; 
+      
     } catch (err) {
       console.error("Logout failed", err);
+      // Fallback: clear local state anyway
       setUser(null);
-      navigate("/login");
+      window.location.href = "/login";
     }
   };
-
   const login = () => {
     navigate("/login");
   };
 
   return (
     <div className="navbar">
+
+      {/* LEFT */}
       <div className="navR">
         <h1 className="title" onClick={() => navigate("/")}>
           ShopEase
         </h1>
       </div>
 
+      {/* CENTER (important for layout balance) */}
       <div className="nav-center"></div>
 
+      {/* RIGHT */}
       <div className="navL">
         <ul className="nav-links">
-          <li><NavLink to="/" end>Home</NavLink></li>
-          <li><NavLink to="/products">Products</NavLink></li>
-          {user && <li><NavLink to="/orderhistory">Orders</NavLink></li>}
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/Products">Products</Link></li>
+
+          {user && (
+            <li>
+              <Link to="/orderhistory">Orders</Link>
+            </li>
+          )}
+
           <li className="wishlist-icon">
-            <NavLink to="/wishlist">
+            <Link to="/wishlist">
               <FaHeart size={20} />
-              {wishlistCount > 0 && <span className="wishlist-count">{wishlistCount}</span>}
-            </NavLink>
+              {wishlistCount > 0 && (
+                <span className="wishlist-count">{wishlistCount}</span>
+              )}
+            </Link>
           </li>
+
           <li className="cart-icon">
-            <NavLink to="/cart">
+            <Link to="/Cart">
               <FaShoppingCart size={22} />
-              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-            </NavLink>
+              {cartCount > 0 && (
+                <span className="cart-count">{cartCount}</span>
+              )}
+            </Link>
           </li>
         </ul>
 
         <div className="user-section">
-          {loading ? (
-            <span>Loading...</span>   
-          ) : user ? (
+          {user ? (
             <>
               <span className="username">Hi, {user.username}</span>
               <button onClick={logout}>Logout</button>
