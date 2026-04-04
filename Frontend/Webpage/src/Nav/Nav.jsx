@@ -1,35 +1,19 @@
 import "./nav.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { FaShoppingCart, FaHeart } from "react-icons/fa"; 
 import axios from "axios";
 import { CartContext } from "../context/Cartcontext";
 import { WishlistContext } from "../context/WishlistContext";
+import { AuthContext } from "../context/AuthContext";
 
 function Nav() {
   const navigate = useNavigate();
-
   const { wishlistItems } = useContext(WishlistContext);
   const { cartCount } = useContext(CartContext);
+  const { user, setUser } = useContext(AuthContext);
 
-  const wishlistCount = wishlistItems.length; 
-  const [user, setUser] = useState(null);
-
-  const fetchUser = async () => {
-    try {
-      const res = await axios.get(
-        "https://shopease-g7bc.onrender.com/api/auth/user/",
-        { withCredentials: true }
-      );
-      setUser(res.data);
-    } catch {
-      setUser(null);
-    }
-  };
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
+  const wishlistCount = wishlistItems.length;
 
   const logout = async () => {
     try {
@@ -39,11 +23,11 @@ function Nav() {
         { withCredentials: true }
       );
       setUser(null);
-      navigate("/");   // ✅ client-side navigation
+      navigate("/");   
     } catch (err) {
       console.error("Logout failed", err);
       setUser(null);
-      navigate("/login"); // ✅ no full reload
+      navigate("/login");
     }
   };
 
@@ -63,34 +47,19 @@ function Nav() {
 
       <div className="navL">
         <ul className="nav-links">
-          <li>
-            <NavLink to="/" end activeClassName="active">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/products" activeClassName="active">Products</NavLink>
-          </li>
-
-          {user && (
-            <li>
-              <NavLink to="/orderhistory" activeClassName="active">Orders</NavLink>
-            </li>
-          )}
-
+          <li><NavLink to="/" end>Home</NavLink></li>
+          <li><NavLink to="/products">Products</NavLink></li>
+          {user && <li><NavLink to="/orderhistory">Orders</NavLink></li>}
           <li className="wishlist-icon">
-            <NavLink to="/wishlist" activeClassName="active">
+            <NavLink to="/wishlist">
               <FaHeart size={20} />
-              {wishlistCount > 0 && (
-                <span className="wishlist-count">{wishlistCount}</span>
-              )}
+              {wishlistCount > 0 && <span className="wishlist-count">{wishlistCount}</span>}
             </NavLink>
           </li>
-
           <li className="cart-icon">
-            <NavLink to="/cart" activeClassName="active">
+            <NavLink to="/cart">
               <FaShoppingCart size={22} />
-              {cartCount > 0 && (
-                <span className="cart-count">{cartCount}</span>
-              )}
+              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
             </NavLink>
           </li>
         </ul>

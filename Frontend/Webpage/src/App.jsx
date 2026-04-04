@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/Cartcontext';
 import { WishlistProvider } from "./context/WishlistContext";
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+import { AuthProvider } from "./context/AuthContext";
 
 import Login from './login/Login';
 import Register from './login/Register';
@@ -26,6 +27,7 @@ function App() {
     <BrowserRouter>
     <WishlistProvider>
       <CartProvider>
+        <AuthProvider>
         <Routes>
         
           <Route path="/" element={<Home />} />
@@ -47,6 +49,7 @@ function App() {
           <Route path="/userdetails" element={<ProtectedRoute><Userdetails/></ProtectedRoute> }/>
           <Route path="/Userorder/:id" element={<ProtectedRoute><Userorder/></ProtectedRoute>}/>
         </Routes>
+        </AuthProvider>
       </CartProvider>
       </WishlistProvider>
     </BrowserRouter>
