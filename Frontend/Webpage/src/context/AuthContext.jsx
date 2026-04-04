@@ -5,24 +5,27 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const res = await axios.get(
           "https://shopease-g7bc.onrender.com/api/auth/user/",
-          { withCredentials: true }
+          { withCredentials: true } 
         );
         setUser(res.data);
       } catch {
         setUser(null);
+      } finally {
+        setLoading(false);
       }
     };
     fetchUser();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, loading }}>
       {children}
     </AuthContext.Provider>
   );

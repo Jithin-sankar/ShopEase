@@ -11,7 +11,7 @@ function Nav() {
   const navigate = useNavigate();
   const { wishlistItems } = useContext(WishlistContext);
   const { cartCount } = useContext(CartContext);
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, loading } = useContext(AuthContext);
 
   const wishlistCount = wishlistItems.length;
 
@@ -23,7 +23,7 @@ function Nav() {
         { withCredentials: true }
       );
       setUser(null);
-      navigate("/");   
+      navigate("/");
     } catch (err) {
       console.error("Logout failed", err);
       setUser(null);
@@ -65,7 +65,9 @@ function Nav() {
         </ul>
 
         <div className="user-section">
-          {user ? (
+          {loading ? (
+            <span>Loading...</span>   
+          ) : user ? (
             <>
               <span className="username">Hi, {user.username}</span>
               <button onClick={logout}>Logout</button>
